@@ -1,0 +1,1 @@
+# Daily-Competitor-Intel-Scraper-2.0
