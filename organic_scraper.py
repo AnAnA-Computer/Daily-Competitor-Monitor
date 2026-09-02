@@ -65,7 +65,7 @@ def scrape_facebook_organic():
     with sync_playwright() as p:
         context = p.chromium.launch_persistent_context(
             user_data_dir=BOT_PROFILE_DIR,
-            headless=False,
+            headless=True, # FIXED FOR GITHUB ACTIONS CLOUD EXECUTION
             args=["--disable-blink-features=AutomationControlled"],
             viewport={'width': 1366, 'height': 900}
         )
@@ -173,7 +173,7 @@ def scrape_facebook_organic():
                     "timestamp": timestamp_str,
                     "caption_text": item["caption"],
                     "media_type": item["media_type"],
-                    "media_url": item["media_url"],  # Fixed: Dynamically maps the extracted URL
+                    "media_url": item["media_url"],
                     "reactions": 0,
                     "comments": 0,
                     "shares": 0,
